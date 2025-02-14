@@ -50,11 +50,13 @@ try:
 
     driver = webdriver.Chrome(options=options)
     if login_method == "1":
+        print(1)
         driver.get("https://web.facebook.com/")
         time.sleep(5)
         # Mengecek jika ada file cookies
         with open("cookies.json", "r") as f:
             cookies = json.load(f)
+            print(2)
             for cookie in cookies:
                 # Melakukan replace value sameSite
                 # Karena value sameSite di selenium adalah
@@ -81,9 +83,12 @@ try:
         time.sleep(5)
 
         print(colored("Berhasil login!", "light_green"))
+        print(3)
 
     # Masuk link postingan
+    print(4)
     driver.get(link_post)
+    print(5)
     time.sleep(5)
     body = driver.find_element(By.TAG_NAME, 'body')
     # body.send_keys(Keys.PAGE_DOWN)
