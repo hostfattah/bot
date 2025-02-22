@@ -86,7 +86,7 @@ try:
 
     # Masuk link postingan
     driver.get(link_post)
-    time.sleep(5)
+    time.sleep(2)
     body = driver.find_element(By.TAG_NAME, 'body')
     # body.send_keys(Keys.PAGE_DOWN)
 
